@@ -2,7 +2,7 @@ package org.fasttrackit.domain;
 
 import java.sql.Date;
 
-public class CharitySavingUnit {
+public class CharityItem {
 
     private long id;
     private String description;

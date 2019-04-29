@@ -2,7 +2,7 @@ package org.fasttrackit.transfer;
 
 import java.sql.Date;
 
-public class SaveCharitySavingRequest {
+public class SaveCharityRequest {
 
     private String description;
     private boolean started;
@@ -43,7 +43,7 @@ public class SaveCharitySavingRequest {
 
     @Override
     public String toString() {
-        return "SaveCharitySavingRequest{" +
+        return "SaveCharityRequest{" +
                 "description='" + description + '\'' +
                 ", started=" + started +
                 ", done=" + done +
