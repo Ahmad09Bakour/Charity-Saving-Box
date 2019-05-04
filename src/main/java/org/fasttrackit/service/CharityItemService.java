@@ -12,7 +12,7 @@ public class CharityItemService {
 
     CharityItemRepository charityItemRepository = new CharityItemRepository();
     public void createCharityItem(SaveCharityRequest request) throws SQLException {
-        System.out.println("Creating Charity item..." + request);
+        System.out.println("Creating a Charity item..." + request);
         charityItemRepository.createCharityItem(request);
     }
 

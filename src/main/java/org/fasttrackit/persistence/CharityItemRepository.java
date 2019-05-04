@@ -15,11 +15,13 @@ public class CharityItemRepository {
     public void createCharityItem(SaveCharityRequest request) throws SQLException {
         try(Connection connection = DatabaseConfiguration.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "INSERT INTO charity_budget_items (description, started, done, deadline) VALUES (?, ?, ?, ?)");
+                    "INSERT INTO charity_budget_items (description, started, location, done, deadline, note) VALUES (?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, request.getDescription());
             preparedStatement.setBoolean(2, request.isStarted());
-            preparedStatement.setBoolean(3, request.isDone());
-            preparedStatement.setDate(4, request.getDeadLine());
+            preparedStatement.setString(3, request.getLocation());
+            preparedStatement.setBoolean(4, request.isDone());
+            preparedStatement.setDate(5, request.getDeadLine());
+            preparedStatement.setString(6, request.getNote());
 
             preparedStatement.executeUpdate();
         }
@@ -39,7 +41,7 @@ public class CharityItemRepository {
     public static List<CharityItem> getCharityItem() throws SQLException {
         try(Connection connection = DatabaseConfiguration.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "SELECT id, description, started, done, deadline FROM charity_budget_items");
+                    "SELECT id, description, started, location, done, deadline, note FROM charity_budget_items");
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -49,8 +51,10 @@ public class CharityItemRepository {
                 charityItem.setId(resultSet.getLong("id"));
                 charityItem.setDescription(resultSet.getString("description"));
                 charityItem.setStarted(resultSet.getBoolean("started"));
+                charityItem.setLocation(resultSet.getString("location"));
                 charityItem.setDone(resultSet.getBoolean("done"));
                 charityItem.setDeadline(resultSet.getDate("deadline"));
+                charityItem.setNote(resultSet.getString("note"));
 
                 response.add(charityItem);
             }

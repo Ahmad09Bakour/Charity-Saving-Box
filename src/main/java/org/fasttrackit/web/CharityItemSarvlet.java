@@ -21,6 +21,7 @@ public class CharityItemSarvlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        setAccessControlHeader(resp);
 
         ObjectMapper objectMapper = new ObjectMapper();
         SaveCharityRequest request = objectMapper.readValue(req.getReader(), SaveCharityRequest.class);

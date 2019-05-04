@@ -8,11 +8,11 @@
   <artifactId>charitysavingbox</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>charityitemslist</name>
+  <name>charitysavingbox</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <packaging>war</packaging>   // this allows "warexploded" to appear in the deployment section when we want to debug by tomcat
+  <packaging>war</packaging>   <!-- this allows "warexploded" to appear in the deployment section when we want to debug by tomcat -->
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

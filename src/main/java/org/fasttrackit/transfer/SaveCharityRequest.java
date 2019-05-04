@@ -6,8 +6,10 @@ public class SaveCharityRequest {
 
     private String description;
     private boolean started;
+    private String location;
     private boolean done;
     private Date deadLine;
+    private String note;
 
     public String getDescription() {
         return description;
@@ -23,6 +25,14 @@ public class SaveCharityRequest {
 
     public void setStarted(boolean started) {
         this.started = started;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public boolean isDone() {
@@ -41,13 +51,23 @@ public class SaveCharityRequest {
         this.deadLine = deadLine;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     @Override
     public String toString() {
         return "SaveCharityRequest{" +
                 "description='" + description + '\'' +
                 ", started=" + started +
+                ", location='" + location + '\'' +
                 ", done=" + done +
                 ", deadLine=" + deadLine +
+                ", note='" + note + '\'' +
                 '}';
     }
 }
